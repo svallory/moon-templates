@@ -1,0 +1,11 @@
+{% macro get_params(obj) -%}
+template_variables:
+{%- for pair in obj -%}
+  {% set key = pair[0] -%}
+  {% set value = pair[1] %}
+  - key: {{key}}
+    value: |
+      {{value}}
+{% endfor %}
+{% endmacro -%}
+{%block content-%}{%endblock content-%}

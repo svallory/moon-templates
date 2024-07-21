@@ -1,0 +1,60 @@
+title: '🌚 Moon Monorepo Template by Moon Launch 🚀'
+
+description: |
+  Launch in moon repo in T-30 seconds
+
+  NOTE: after the generation is completed,
+  you'll need to run the script below to finish the setup.
+
+  cd DEST
+  ./finish-setup.sh
+
+destination: '.'
+
+variables:
+  platform:
+    prompt: 'What types of project should the monorepo be prepared to have?'
+    type: 'enum'
+    values: ['node', 'deno', 'bun']
+
+  projectTypes:
+    prompt: 'What types of project should the monorepo be prepared to have?'
+    type: 'enum'
+    multiple: true
+    values: ['library', 'packages', 'apps']
+
+  languages:
+    prompt: 'What languages will you write your project in?'
+    type: 'enum'
+    multiple: true
+    values: ['typescript', 'javascript']
+
+  tags:
+    prompt: 'What tools would you like to use?'
+    type: 'enum'
+    multiple: true
+    values:
+      - eslint
+      - jest
+      - packemon
+      - prettier
+      - storybook
+      - vite
+      - vitest
+
+  versionManager:
+    prompt: 'Are you using an external version manager tool?'
+    type: 'enum'
+    multiple: false
+    default: proto
+    values:
+      - proto
+      - nodenv
+      - nvm
+      - none
+
+  outputs:
+    prompt: 'What output formats should libraries generate by default?'
+    type: 'enum'
+    multiple: true
+    values: ['esm', 'cjs', 'lib']

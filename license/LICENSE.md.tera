@@ -1,0 +1,11 @@
+---
+force: true
+skip: {{ license is undefined or license == "" or license == "none" }}
+---
+{% if license == "MIT" -%}
+{% include "partials/MIT.md" %}
+{% elif license == "BlueOak" -%}
+{% include "partials/BlueOak.md" %}
+{% elif license == "NOTICE" -%}
+{% include "partials/NOTICE.md" %}
+{% endif %}

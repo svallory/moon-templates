@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "clean:vite": "rm -rf node_modules/.vite",
+    "dev:vite": "vite",
+    "build:vite": "tsc && vite build",
+    "preview:vite": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2",
+    "vite": "^5.1.5"
+  }
+}

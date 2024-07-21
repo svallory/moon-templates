@@ -1,0 +1,45 @@
+{%- set __replace_all = false -%}
+{%- set __template = "_prompts_/template" -%}
+{%- set __template_id = "prompts::template" -%}
+{%- set debug = false -%}
+{%- set default = "B" -%}
+{%- set dest_dir = "/Users/svallory/projects/fun/moon-launch/templates/aaa" -%}
+{%- set dest_rel_dir = "templates/aaa" -%}
+{%- set multiple = true -%}
+{%- set prompt = "hehe" -%}
+{%- set values = "|::| A :: B :: C =42 :: Abóbora" -%}
+{%- set var_type = "enum" -%}
+{%- set variable = "varvar" -%}
+{%- set working_dir = "/Users/svallory/projects/fun/moon-launch" -%}
+{%- set workspace_root = "/Users/svallory/projects/fun/moon-launch" -%}
+
+{%- macro code(text, lang="twig") -%}
+```{{lang}}
+{{"{% "}}{{ text }}{{" %}"}}
+```
+{% endmacro code -%}
+
+{% macro test(actual, exp, title="") %}
+{%-   if actual == exp -%}
+#### ✅ &nbsp;&nbsp; {{title}} &nbsp;&nbsp; <span style="color:green">passed</span>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  **Result:** `{{actual | json_encode() }}`
+
+{%-   else %}
+#### ❌ &nbsp;&nbsp; {{title}} &nbsp;&nbsp; <span style="color:red">failed</span>
+
+**Expected**
+
+```json
+{{exp | json_encode() }}
+```
+
+**Actual:**
+  ```json
+  {{actual | json_encode() }}
+  ```
+{%-   endif %}
+{%- endmacro test -%}
+
+{%- block test -%}{%- endblock test -%}

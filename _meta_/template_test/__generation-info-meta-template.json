@@ -1,0 +1,17 @@
+{
+  "__replace_all": true,
+  "__template": "__template",
+  "__template_id": "meta:template",
+  "add_sample": false,
+  "base_dir": "templates/",
+  "description": "Set some description here",
+  "dest_dir": "/Users/svallory/projects/fun/moon-launch/templates/_meta_/template_test",
+  "dest_rel_dir": "templates/_meta_/template_test",
+  "extends": [
+    ""
+  ],
+  "id": "",
+  "title": "",
+  "working_dir": "/Users/svallory/projects/fun/moon-launch",
+  "workspace_root": "/Users/svallory/projects/fun/moon-launch"
+}

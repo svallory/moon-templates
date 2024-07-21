@@ -1,0 +1,182 @@
+{% extends "test-env.partial.yml" %}
+{% block test -%}
+---
+skip: {{not __testing}}
+force: true
+---
+# Enum Values Parsing
+
+{%- set values_tests = [
+    "1,2, 3 ,4",
+    "|::| A :: B :: C =42 :: Abóbora",
+    ":~: A ~ B::C ~ Abóbora",
+  ]
+-%}
+
+## Context
+
+```json
+{{__tera_context}}
+```
+
+## Test Values
+
+{% for val in values_tests %}
+```text
+{{ val | json_encode }}
+```
+{% endfor %}
+
+## Suite: Detect separator preamble
+
+### Tests
+
+{%- for val in values_tests %}
+
+{{loop.index}}. `{{val}}`
+
+    {% if val is starting_with(":") -%}
+    Found!
+    {{ self::code(text='values is starting_with(":")') | indent(prefix="    ") }}
+    {% elif val is starting_with("|") %}
+    Found!
+    {{ self::code(text='values is starting_with("|")') | indent(prefix="    ") }}
+    {% else -%}
+    No separator preamble found
+    {% endif -%}
+{% endfor %}
+
+## Suite: Break into pieces
+
+{% set char = values | split(pat="") | nth(n=1) %}
+
+### Preamble Delimiter
+
+{# values_tests.0 does not start with `|` or `:` #}
+{% set delim1 = values_tests.1 | split(pat="") | nth(n=1) %}
+{% set delim2 = values_tests.2 | split(pat="") | nth(n=1) %}
+{% set delim = [ "", delim1, delim2 ] %}
+
+#### Delims
+
+```json
+{{ delim | json_encode }}
+```
+
+### Separator
+
+{% set sep = [
+  ",",
+  values_tests.1 | split(pat=delim1) | nth(n=1),
+  values_tests.2 | split(pat=delim2) | nth(n=1),
+]%}
+
+{{ self::test(actual=sep.0, exp=",", title="`"~values_tests.0~"`") }}
+{{ self::test(actual=sep.1, exp="::", title="`"~values_tests.1~"`") }}
+{{ self::test(actual=sep.2, exp="~", title="`"~values_tests.2~"`") }}
+
+#### seps
+```json
+{{sep | json_encode}}
+```
+
+### Text
+
+{% set preamble = [
+  "",
+  delim.1 ~ sep.1 ~ delim.1,
+  delim.2 ~ sep.2 ~ delim.2
+]%}
+
+{# When sep is "", text == value #}
+{%- set text = [
+  values_tests.0,
+  values_tests.1 | split(pat=preamble.1) | nth(n=1) | trim,
+  values_tests.2 | split(pat=preamble.2) | nth(n=1) | trim 
+]%}
+
+{{ self::test(
+  exp="1,2, 3 ,4", 
+  title="Original value: `" ~ values_tests.0 ~ "`",
+  actual=text.0,
+)}}
+
+{{ self::test(
+  exp="A :: B :: C =42 :: Abóbora",
+  title="Original value: `" ~ values_tests.1 ~ "`",
+  actual=text.1, 
+)}}
+
+{{ self::test(
+  exp="A ~ B::C ~ Abóbora",
+  title="Original value: `" ~ values_tests.2 ~ "`",
+  actual=text.2, 
+)}}
+
+#### texts
+
+- `{{ text.0 | json_encode }}`
+
+- `{{ text.1 | json_encode }}`
+
+- `{{ text.2 | json_encode }}`
+
+### Items
+
+{% set items = [
+  text.0 | split(pat=sep.0), 
+  text.1 | split(pat=sep.1), 
+  text.2 | split(pat=sep.2), 
+]%}
+
+{% set_global trimmed = [] %}
+
+{% set res = [] %}
+
+{%  for list in items %}
+{%-   set_global trimmedList = [] %}
+{%-   for it in list %}
+{%      if it is containing("=") %}
+{%        set key = it | split(pat="=") | nth(n=0) | trim %}
+{%        set val = it | split(pat="=") | nth(n=1) | trim %}
+{%        set it = [key,val] %}
+{%-       set_global trimmedList = trimmedList | concat(with=[it]) -%}
+{%      else %}
+{%        set it = it | trim %}
+{%-     set_global trimmedList = trimmedList | concat(with=it) -%}
+{%      endif %}
+{%-   endfor %}
+{%-   set_global res = res | concat(with=[trimmedList]) %}
+{%- endfor %}
+
+{{ self::test(
+  exp=["1","2","3","4"],
+  title="Original value: `" ~ text.0 ~ "`",
+  actual=res.0,
+)}}
+
+{% set pair = ["C","42"] %}
+{{ self::test(
+  exp=["A", "B",
+    pair,
+    "Abóbora"
+  ],
+  title="Original value: `" ~ text.1 ~ "`",
+  actual=res.1, 
+)}}
+
+{{ self::test(
+  exp=["A","B::C","Abóbora"],
+  title="Original value: `" ~ text.2 ~ "`",
+  actual=res.2, 
+)}}
+
+#### items
+
+- `{{ res.0 | json_encode }}`
+
+- `{{ res.1 | json_encode }}`
+
+- `{{ res.2 | json_encode }}`
+
+{% endblock test -%}

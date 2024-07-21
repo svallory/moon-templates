@@ -1,0 +1,33 @@
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+title: "[prompt]:  project type"
+description: |
+  This template does nothing on its own
+  It is meant to be extended by templates that need to ask for a project type
+
+variables:
+  project_type:
+    type: enum
+    default: unknown
+    values:
+      - value: unknown
+        label: "Leave it empty."
+
+      - value: application
+        label: "An application of any kind."
+
+      - value: automation
+        label: "An automated testing suite, like E2E, integration, or visual tests. V1.16.0"
+
+      - value: configuration
+        label: "Configuration files or infrastructure. V1.22.0"
+
+      - value: library
+        label: "A self-contained, shareable, and publishable set of code."
+
+      - value: scaffolding
+        label: "Templates or generators for scaffolding. V1.22.0"
+
+      - value: tool
+        label: "An internal tool, one-off script, etc."

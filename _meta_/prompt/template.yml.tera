@@ -1,0 +1,28 @@
+---
+skip: {{__testing}}
+---
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+title: "[prompt]:  {{variable}}"
+description: |
+  This template does nothing on its own
+  It is meant to be extended by templates that need to ask for a {{variable}} variable
+
+variables:
+  {{variable}}:
+    prompt: |
+      {% if prompt -%}
+      {{prompt}}
+      {% else -%}
+      {{variable}}:{% endif %}
+    type: {{var_type}}
+    {% if default -%}
+    default: {{default}}
+    {% endif -%}
+    {% if var_type == "enum" -%}
+    multiple: {% if multiple %}true{% else %}false{% endif %}
+    values:
+      - value: a value
+        label: "A label"
+    {% endif -%}

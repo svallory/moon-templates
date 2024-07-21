@@ -1,0 +1,7 @@
+---
+skip: {{ "library" not in projectTypes }}
+---
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+# Configuration you set here will apply to
+# all projects with `type: library` in their moon.yml

@@ -1,0 +1,22 @@
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+title: "[prompt]:  asdf"
+description: |
+  This template does nothing on its own
+  It is meant to be extended by templates that need to ask for a asdf variable
+
+variables:
+  tests:
+    type: boolean
+    
+  asdf:
+    prompt: |
+      Write the prompt for asdf here
+      type: enum
+    default: asdf
+    multiple: false
+    values:
+      - value: a value
+        label: "A label"
+    
