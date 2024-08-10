@@ -1,5 +1,5 @@
 ---
-to: .moon/template.base.yml
+to: .moon/toolchain.base.yml
 ---
 # https://moonrepo.dev/docs/config/toolchain
 $schema: 'https://moonrepo.dev/schemas/toolchain.json'

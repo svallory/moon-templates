@@ -12,7 +12,7 @@ extends:
   # When `debug` is set to true, a `__generation-info-[template.id].json` file
   # is generated at the root of DEST
   - "__utils/debug"
-  - toolchains
+  - config.toolchain
 
 variables:
   # The template path relative to base-dir
