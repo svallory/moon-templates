@@ -1,5 +1,7 @@
 $schema: https://moonrepo.dev/schemas/template.json
 
+# Id may only contain: a-Z 0-9 . - / _
+id: "config.toolchain"
 title: "Setup toolchains"
 
 description: "Add toolchain config for the selected toolchains"

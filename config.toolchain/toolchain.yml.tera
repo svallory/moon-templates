@@ -1,6 +1,6 @@
 ---
 to: .moon/template.yml
-skip: {{ __template != "toolchains" }}
+skip: {{ __template != "config.toolchain" }}
 ---
 # https://moonrepo.dev/docs/config/toolchain
 $schema: 'https://moonrepo.dev/schemas/toolchain.json'

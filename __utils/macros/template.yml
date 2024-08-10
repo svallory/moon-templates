@@ -1,6 +1,7 @@
 # https://moonrepo.dev/docs/config/template
 $schema: 'https://moonrepo.dev/schemas/template.json'
 
+id: __utils.macros
 # REQUIRED: Name of the template in a human readable format.
 title: "__utils > macros"
 
@@ -11,7 +12,7 @@ extends:
   # Adds the ability to debug the code generation
   # When `debug` is set to true, a `__generation-info-[template.id].json` file
   # is generated at the root of DEST
-  - "__utils/debug"
+  - __utils.debug
 
 variables:
   # The template path relative to base-dir
