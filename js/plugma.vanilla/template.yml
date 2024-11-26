@@ -1,6 +1,6 @@
 $schema: https://moonrepo.dev/schemas/template.json
 
-id: plugma.vanilla.ts
+id: js.plugma.vanilla
 
 title: "Plugma > Vanilla JS"
 

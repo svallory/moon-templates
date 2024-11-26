@@ -1,6 +1,6 @@
 $schema: https://moonrepo.dev/schemas/template.json
 
-id: plugma.svelte.ts
+id: js.plugma.svelte
 
 title: "Plugma > Svelte JS"
 

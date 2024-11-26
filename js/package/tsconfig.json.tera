@@ -1,3 +1,6 @@
+---
+skip: {{ not useTypescript }}
+---
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {

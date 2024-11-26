@@ -1,0 +1,14 @@
+---
+skip: {{ not useTypescript }}
+---
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "composite": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "outDir": "./.tsc"
+  },
+  "include": ["src/**/*"]
+}

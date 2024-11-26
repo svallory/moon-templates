@@ -1,0 +1,38 @@
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+id: js.package
+
+# REQUIRED: Name of the template in a human readable format.
+title: "Javascript > Package"
+
+# REQUIRED: Description of what the template is for and other relevant information.
+description: "Creates a typescript package (publishable) project"
+
+extends:
+  # Adds the ability to debug the code generation
+  # When `debug` is set to true, a `__generation-info-[template.id].json` file
+  # is generated at the root of DEST
+  - meta.debug
+  - meta.macros
+  - license
+
+variables:
+  # The template path relative to base-dir
+  # This variable can be used to determine the template being executed
+  # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
+  __template:
+    type: string
+    default: ts/package
+
+  # An id to identify this template
+  # This variable can be used to determine the template being executed
+  # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
+  __template_id:
+    type: string
+    default: ts.package
+
+  useTypescript:
+    prompt: "Use Typescript?"
+    type: boolean
+    default: true
