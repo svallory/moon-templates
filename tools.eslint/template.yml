@@ -1,0 +1,85 @@
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+id: tools.eslint
+
+# REQUIRED: Name of the template in a human readable format.
+title: "Tool: eslint"
+
+# REQUIRED: Description of what the template is for and other relevant information.
+description: |
+  Configures the eslint development tool for your workspace.
+  The task configuration will be added to `.moon/tasks/[platform].yml`.
+
+destination: /
+
+extends:
+  # Adds the ability to debug the code generation
+  # When `debug` is set to true, a `__generation-info-[template.id].json` file
+  # is generated at the root of DEST
+  - meta.debug
+  - meta.macros
+
+variables:
+  # The template path relative to base-dir
+  # This variable can be used to determine the template being executed
+  # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
+  __template:
+    type: string
+    default: tools/eslint
+    internal: true
+
+  # An id to identify this template
+  # This variable can be used to determine the template being executed
+  # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
+  __template_id:
+    type: string
+    default: tools.eslint
+    internal: true
+
+  platform:
+    order: 1
+    prompt: 'What platform do you want to configure eslint for?'
+    type: 'enum'
+    multiple: false
+    values: ['bun', 'deno', 'node']
+
+  typescript:
+    order: 2
+    prompt: 'Setup typescript support?'
+    type: boolean
+    default: true
+
+  presets:
+    order: 3
+    prompt: |
+      Which presets do you want to use?
+       
+        moon - A modern and strict ESLint configuration with first-class TypeScript support.
+          Expands upon the amazing Airbnb config to provide the latest ECMAScript features.
+         
+        moon/browser - Sets the environment to the browser/DOM and enables the compat plugin.
+          Should not be used with the node preset.
+         
+        moon/node - Sets the environment to Node.js and enables the node plugin.
+          Should not be used with the browser preset.
+         
+        moon/react - Enables the react, react-hooks, react-perf, and jsx-a11y plugins.
+          Only applies to *.tsx files and also extends the browser preset.
+          Enables automatic JSX runtime if react version is 17+.
+         
+        moon/solid - Enables the solid plugin.
+          Only applies to *.tsx files and also extends the browser preset.
+         
+    type: enum
+    multiple: true
+    default: ['moon']
+    values: ['moon', 'moon/browser', 'moon/node', 'moon/react', 'moon/solid']
+
+  lintPaths:
+    order: 4
+    prompt: 'Which paths should be linted?'
+    type: enum
+    multiple: true
+    default: ['apps/**/*', 'libs/**/*', 'packages/**/*']
+    values: ['apps/**/*', 'libs/**/*', 'packages/**/*']

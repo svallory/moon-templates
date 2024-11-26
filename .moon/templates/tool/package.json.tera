@@ -1,0 +1,7 @@
+{% extends "_partials/macros" %}
+{% block content -%}
+{
+  "devDependencies": {
+  }
+}
+{% endblock content %}

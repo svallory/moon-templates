@@ -1,0 +1,6 @@
+{% raw %}
+{% extends "partials/macros" %}
+{% block content -%}
+{{ self::yaml_arr(name="sing", items=["a", "b", "c"]) }}
+{% endblock content -%}
+{% endraw %}

@@ -1,60 +1,35 @@
 # https://moonrepo.dev/docs/config/template
 $schema: 'https://moonrepo.dev/schemas/template.json'
 
-id: license
-
 # REQUIRED: Name of the template in a human readable format.
-title: "OSS License"
+title: "Tool: storybook"
 
 # REQUIRED: Description of what the template is for and other relevant information.
-description: "Pick a license among the most common OSS licenses and add it to your project"
+description: "Configure the storybook development tool for your workspace or project"
 
-destination: /
-
-# extends:
+extends:
   # Adds the ability to debug the code generation
   # When `debug` is set to true, a `__generation-info-[template.id].json` file
   # is generated at the root of DEST
-  # - meta.debug
+  - meta.debug
+
 
 variables:
-  debug:
-    type: boolean
-    default: false
-
   # The template path relative to base-dir
   # This variable can be used to determine the template being executed
   # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
   __template:
     type: string
-    default: license
-    internal: true
+    default: tools/storybook
 
   # An id to identify this template
   # This variable can be used to determine the template being executed
   # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
   __template_id:
     type: string
-    default: license
-    internal: true
+    default: tools/storybook
 
-  license:
-    order: 1
-    type: enum
-    prompt: Select a license
-    multiple: false
-    default: MIT
-    values:
-      - BlueOak
-      - MIT
-      - label: none (private, no file)
-        value: none
-      - label: NOTICE (private)
-        value: NOTICE
-
-  licensor:
-    order: 2
-    prompt: 'Licensor name:'
-    type: string
-    required: true
-    default: none
+    
+  debug:
+    type: boolean
+    default: false

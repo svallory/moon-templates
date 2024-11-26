@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "eslint-plugin-testing-library": "^7.0.0"
+  }
+}

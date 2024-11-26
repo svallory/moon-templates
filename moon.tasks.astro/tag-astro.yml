@@ -1,0 +1,6 @@
+---
+to: .moon/tasks/tag-astro.yml
+---
+$schema: https://moonrepo.dev/schemas/tasks.json
+
+extends: https://raw.githubusercontent.com/moonrepo/moon-configs/master/javascript/astro/tasks.yml

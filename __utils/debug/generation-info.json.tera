@@ -1,6 +1,0 @@
----
-force: true
-{# skip: {{ not debug }} #}
-to: {{ "__generation-info-"}}{{ __template_id | slugify }}{{ ".json" }}
----
-{{ __tera_context }}

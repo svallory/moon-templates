@@ -1,0 +1,27 @@
+$schema: https://moonrepo.dev/schemas/template.json
+
+id: plugma.svelte.ts
+
+title: "Plugma > Svelte JS"
+
+description: "Create a Figma plugin with Svelte and TypeScript using Plugma"
+
+destination: /apps/{{ name }}
+
+extends:
+  - "meta.debug"
+
+variables:
+  __template:
+    type: string
+    default: "plugma.svelte.ts"
+    internal: true
+
+  __template_id:
+    type: string
+    default: "plugma.svelte.ts"
+    internal: true
+
+  name:
+    prompt: "What is the name of the plugin?"
+    type: string

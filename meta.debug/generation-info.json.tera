@@ -1,0 +1,6 @@
+---
+force: true
+skip: {{ not debug }}
+to: {{ ".moon/__generation-debug-"}}{{ __template_id }}{{ ".json" }}
+---
+{{ __tera_context }}

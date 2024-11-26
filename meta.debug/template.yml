@@ -1,0 +1,35 @@
+# https://moonrepo.dev/docs/config/template
+$schema: 'https://moonrepo.dev/schemas/template.json'
+
+id: meta.debug
+
+# REQUIRED: Name of the template in a human readable format.
+title: Meta > debug
+
+# REQUIRED: Description of what the template is for and other relevant information.
+description: A meta template intended to be inherited by other templates to automatically generate debug info
+
+destination: /
+
+variables:
+  # When true, generates a debug-[template-name].json file with debug info
+  # debug:
+  #   type: boolean
+  #   default: false
+
+  __template:
+    type: string
+    default: meta/debug
+    internal: true
+
+  # An id to identify this template
+  # This variable can be used to determine the template being executed
+  # It is useful for nesting templates like in toolchains and moon.toolchain/typescript
+  __template_id:
+    type: string
+    default: meta.debug
+    internal: true
+
+  debug:
+    type: boolean
+    default: false

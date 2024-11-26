@@ -1,0 +1,9 @@
+{% import "partials/macros" as macros %}
+{
+  "extends": "./tsconfig.options.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true
+  },
+  {{ macros::json_arr(name="include", items=lintPaths) }}
+}

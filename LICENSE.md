@@ -1,3 +1,26 @@
+# LICENSE
+
+> [!IMPORTANT]
+> **KUDOS TO YOU** for checking the license!
+>
+> If you are concerned with this kind of thing, you are a good person, at least in my book. ❤️
+>
+> The following is a humble request to you
+> and not part of the license.
+>
+> Pay it forward in 30 seconds: [send a "thanks!" tweet](https://twitter.com/intent/tweet?text=Hey%20%20%40svallory_en%20thanks%20for%20creating%20moonrepo%20templates%21%20https%3A%2F%2Fgit.new%2Fmoon-template%20%F0%9F%91%8D)
+
+If you find this work useful, inspirational, or worthy in any way,
+can you take 1 min to send me a shout out on Twitter? It will help me grow and reach more people and **won't cost a penny** :)
+
+I'd love to hear your take on the project, but if you don't have the time
+or haven't tried it yet, a simple "thanks", "howdy", or whatever will do just fine.
+The link in the note above will even type the tweet for you ;)
+
+Now, here goes the license...
+
+## The Unlicense
+
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/lintstagedrc.schema.json",
+  {% if "eslint" in linters -%}
+    "*.{ts,js}": ["eslint --fix", "prettier --write"],
+  {%- endif %}
+  {% if "stylelint" in linters -%}
+    "*.css": ["stylelint --fix", "prettier --write"],
+  {%- endif %}
+  {% if "prettier" in linters -%}
+    "*.{marko,html,json,md}": ["prettier --write"],
+    "./package.json": ["prettier --write", "sort-package-json --quiet"]
+  {%- endif %}
+}

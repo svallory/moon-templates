@@ -1,8 +1,0 @@
-type: 'application'
-
-tags:
-  - astro
-
-fileGroups:
-  app:
-    - 'astro.config.*'

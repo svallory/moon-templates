@@ -1,0 +1,27 @@
+$schema: https://moonrepo.dev/schemas/template.json
+
+id: plugma.vanilla.ts
+
+title: "Plugma > Vanilla JS"
+
+description: "Create a Figma plugin in vanilla JS from the Plugma template"
+
+destination: /apps/{{ name }}
+
+extends:
+  - "meta.debug"
+
+variables:
+  __template:
+    type: string
+    default: "plugma.vanilla.ts"
+    internal: true
+
+  __template_id:
+    type: string
+    default: "plugma.vanilla.ts"
+    internal: true
+
+  name:
+    prompt: "What is the name of the plugin?"
+    type: string

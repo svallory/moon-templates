@@ -1,0 +1,42 @@
+---
+to: .moon/tasks/{{ platform }}.yml
+---
+
+$schema: "https://moonrepo.dev/schemas/tasks.json"
+
+fileGroups:
+  app: []
+  sources: []
+  tests: []
+
+tasks:
+  # https://moonrepo.dev/docs/guides/examples/eslint
+  lint:
+    args:
+      - "--cache"
+    command:
+      - "eslint"
+      - "--ext"
+      - ".ts,.tsx,.cts,.mts,.js,.jsx,.cjs,.mjs"
+      - "--fix"
+      - "--report-unused-disable-directives"
+      - "--no-error-on-unmatched-pattern"
+      - "--exit-on-fatal-error"
+      - "--ignore-path"
+      - "@in(2)"
+      - "."
+    inputs:
+      - "*.config.*"
+      - "**/.eslintrc.*"
+      - "/.eslintignore"
+      - "/.eslintrc.*"
+      - "@group(app)"
+      - "@globs(sources)"
+      - "@globs(tests)"
+{%- if typescript %}
+      # TypeScript support
+      - 'types/**/*'
+      - 'tsconfig.json'
+      - '/tsconfig.eslint.json'
+      - '/tsconfig.options.json'
+{% endif %}

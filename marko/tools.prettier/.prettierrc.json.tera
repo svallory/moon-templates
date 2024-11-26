@@ -1,0 +1,8 @@
+---
+skip: {{ "prettier" not in tools }}
+---
+{
+  "plugins": [
+    "prettier-plugin-marko"
+  ]
+}

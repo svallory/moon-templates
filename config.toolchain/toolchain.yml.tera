@@ -1,9 +1,0 @@
----
-to: .moon/template.yml
-skip: {{ __template != "config.toolchain" }}
----
-# https://moonrepo.dev/docs/config/toolchain
-$schema: 'https://moonrepo.dev/schemas/toolchain.json'
-
-# Part ways with the template and use the local file
-extends: './toolchain.base.yml'

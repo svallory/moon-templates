@@ -1,0 +1,37 @@
+$schema: https://moonrepo.dev/schemas/template.json
+
+id: moon.toolchains
+
+# Id may only contain: a-Z 0-9 . - / _
+title: Moon > Toolchains
+
+description: "Add toolchain config for the selected toolchains"
+
+destination: /
+
+extends:
+  - "meta.debug"
+
+variables:
+  __template:
+    type: string
+    default: "moon.toolchains"
+    internal: true
+
+  __template_id:
+    type: string
+    default: "moon.toolchains"
+    internal: true
+
+  versionManager:
+    type: string
+  
+  toolchains:
+    prompt: "Select the toolchains to configure"
+    type: enum
+    multiple: true
+    values:
+      - bun
+      - deno
+      - node
+      - typescript
