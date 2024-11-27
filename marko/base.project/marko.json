@@ -1,7 +1,7 @@
 {
-  "exports": "./src/components", 
-  "taglib-imports": [
-    "@space/design-system/marko.json",
-    "./src/assets/icons/marko.json"
-  ]
+	"exports": "./src/components",
+	"taglib-imports": [
+		"@space/design-system/marko.json",
+		"./src/assets/icons/marko.json"
+	]
 }

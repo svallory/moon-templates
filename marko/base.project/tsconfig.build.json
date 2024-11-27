@@ -1,13 +1,8 @@
 {
-  "extends": "../../tsconfig.options.json",
-  "compilerOptions": {
-    "outDir": "dts",
-    "rootDir": "src"
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "types/**/*",
-    "../../types/**/*"
-  ]
+	"extends": "../../tsconfig.options.json",
+	"compilerOptions": {
+		"outDir": "dts",
+		"rootDir": "src"
+	},
+	"include": ["src/**/*.ts", "src/**/*.d.ts", "types/**/*", "../../types/**/*"]
 }

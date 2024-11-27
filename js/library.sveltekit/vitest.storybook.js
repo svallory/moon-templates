@@ -1,5 +1,5 @@
 ---
-skip: {{ not useTypescript }}
+skip: {not useTypescript }
 ---
 import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin';
 import { storybookSveltekitPlugin } from '@storybook/sveltekit/vite-plugin';

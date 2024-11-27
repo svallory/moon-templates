@@ -1,6 +1,6 @@
 <script lang="ts">
-	import svelteLogo from './assets/svelte.svg'
-	import Icon from './components/Icon.svelte'
+import svelteLogo from "./assets/svelte.svg";
+import Icon from "./components/Icon.svelte";
 </script>
 
 <div class="container">

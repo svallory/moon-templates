@@ -19,18 +19,10 @@
 			"name": "figma-plugin-vanilla-js",
 			"main": "src/main.js",
 			"ui": "src/ui.js",
-			"editorType": [
-				"figma",
-				"figjam"
-			],
+			"editorType": ["figma", "figjam"],
 			"networkAccess": {
-				"allowedDomains": [
-					"none"
-				],
-				"devAllowedDomains": [
-					"http://localhost:*",
-					"ws://localhost:9001"
-				]
+				"allowedDomains": ["none"],
+				"devAllowedDomains": ["http://localhost:*", "ws://localhost:9001"]
 			}
 		}
 	}

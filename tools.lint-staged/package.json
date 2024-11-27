@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
-    "lint-staged": "^15.2.10"
-  }
+	"devDependencies": {
+		"lint-staged": "^15.2.10"
+	}
 }

@@ -1,5 +1,5 @@
 import html from "html-template-tag";
-import javascriptLogo from './assets/javascript.svg'
+import javascriptLogo from "./assets/javascript.svg";
 import { Icon } from "./components/Icon";
 
 export default (function App() {
@@ -12,5 +12,5 @@ export default (function App() {
 		</div>
 		<a href="https://plugma.dev/docs" target="_blank" class="button">Read the docs</a>
 	</div>
-	`
-})()
+	`;
+})();

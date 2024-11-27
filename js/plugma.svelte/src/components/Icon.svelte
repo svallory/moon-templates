@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let size = 16;
-	export let svg;
+export const size = 16;
+export let svg;
 </script>
 
 {#if svg === "plugma"}

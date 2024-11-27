@@ -1,7 +1,7 @@
-import 'svelte/elements';
+import "svelte/elements";
 
-declare module 'svelte/elements' {
-  export interface SvelteHTMLElements {
-    Button: HTMLButtonAttributes;
-  }
+declare module "svelte/elements" {
+	export interface SvelteHTMLElements {
+		Button: HTMLButtonAttributes;
+	}
 }

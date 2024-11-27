@@ -24,18 +24,10 @@
 			"name": "figma-plugin-ts-svelte",
 			"main": "src/main.ts",
 			"ui": "src/ui.ts",
-			"editorType": [
-				"figma",
-				"figjam"
-			],
+			"editorType": ["figma", "figjam"],
 			"networkAccess": {
-				"allowedDomains": [
-					"none"
-				],
-				"devAllowedDomains": [
-					"http://localhost:*",
-					"ws://localhost:9001"
-				]
+				"allowedDomains": ["none"],
+				"devAllowedDomains": ["http://localhost:*", "ws://localhost:9001"]
 			}
 		}
 	}

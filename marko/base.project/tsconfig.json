@@ -1,16 +1,12 @@
 {
-  "include": [
-    "src/**/*",
-    "types/**/*",
-    "../../types/**/*"
-  ],
-  "compilerOptions": {
-    "emitDeclarationOnly": false,
-    "noEmit": true
-  },
-  "references": [
-    {
-      "path": "tsconfig.build.json"
-    }
-  ]
+	"include": ["src/**/*", "types/**/*", "../../types/**/*"],
+	"compilerOptions": {
+		"emitDeclarationOnly": false,
+		"noEmit": true
+	},
+	"references": [
+		{
+			"path": "tsconfig.build.json"
+		}
+	]
 }
