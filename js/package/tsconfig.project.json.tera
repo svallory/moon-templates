@@ -1,0 +1,25 @@
+---
+skip: {{ not useTypescript }}
+---
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "composite": true,
+    "noEmit": true,
+    "declaration": true,
+    "declarationDir": "./.tsc/types",
+    "rootDir": "./src",
+    "outDir": "./.tsc"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["tests/**/*"],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.esm.json"
+    }
+  ]
+}

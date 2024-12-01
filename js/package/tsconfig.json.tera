@@ -2,21 +2,22 @@
 skip: {{ not useTypescript }}
 ---
 {
-  "extends": "../../tsconfig.options.json",
-  "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/{{name}}",
-    "verbatimModuleSyntax": false
-  },
-  "include": [
-    "src/**/*",
-    "tests/**/*"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.esm.json"
-    },
-    {
-      "path": "./tsconfig.lib.json"
-    }
-  ]
+	"extends": "../../tsconfig.options.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"verbatimModuleSyntax": false,
+		"baseUrl": "./",
+		"paths": {
+			"@figma-plugin-sdk/message-bus": [
+				"./src/index.ts"
+			],
+			"@figma-plugin-sdk/message-bus/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": [
+		"./src/**/*",
+		"./tests/**/*"
+	]
 }

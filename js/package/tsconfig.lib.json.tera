@@ -2,13 +2,17 @@
 skip: {{ not useTypescript }}
 ---
 {
-  "extends": "../../tsconfig.options.json",
-  "compilerOptions": {
-    "outDir": "lib",
-    "rootDir": "src"
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "references": []
+	"extends": "./tsconfig.project.json",
+	"compilerOptions": {
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"outDir": "./lib",
+		"rootDir": "./src",
+		"composite": true,
+		"declaration": true,
+		"declarationDir": "./lib",
+		"noEmit": false
+	},
+	"include": ["src/**/*"],
+	"exclude": ["tests/**/*"]
 }

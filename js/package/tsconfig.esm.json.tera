@@ -2,13 +2,17 @@
 skip: {{ not useTypescript }}
 ---
 {
-  "extends": "../../tsconfig.options.json",
-  "compilerOptions": {
-    "outDir": "esm",
-    "rootDir": "src"
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "references": []
+	"extends": "./tsconfig.project.json",
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"outDir": "./esm",
+		"rootDir": "./src",
+		"composite": true,
+		"declaration": true,
+		"declarationDir": "./esm",
+		"noEmit": false
+	},
+	"include": ["src/**/*"],
+	"exclude": ["tests/**/*"]
 }
